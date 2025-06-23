@@ -1,8 +1,8 @@
-import openai
+# import openai
 import os
 from flask import Flask, render_template_string, request
 
-openai.api_key = os.environ['OPENAI_API_KEY']
+# openai.api_key = os.environ['OPENAI_API_KEY']
 
 def generate_tutorial(components):
     # Simulated response
