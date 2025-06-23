@@ -269,7 +269,7 @@ def hello():
                     </button>
                     <p style="color: #dc3545; margin-top: 10px; font-weight: 500;">
                         🔒 Recipe generation is disabled to prevent misuse of API credits.<br> For more details contact 
-                                  <a href="mailto:aditya.prabhu0910@gmail.com">Aditya Prabhu</a>
+                                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfsBQtJuZxlVzj1OQNgkFFjWz5_I7t-nvXUd3tO-4XKb9jQuQ/viewform?usp=header">Aditya Prabhu</a>
                             <br><br> You can still watch the demo of the app over here -- 
                                   <a href="https://drive.google.com/file/d/1toxF7uTQUhgIiDAKIBLKcxOs1yG1OM5q/view?usp=sharing">Demo Video</a> 
                     </p>
