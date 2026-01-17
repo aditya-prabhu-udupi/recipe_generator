@@ -57,7 +57,9 @@ pip install -r requirements.txt
 python app.py
 
 ### 8. Open in browser
-http://127.0.0.1:5000/
+```
+http://127.0.0.1:5000
+```
 
 ---
 ## Future Improvements
@@ -84,4 +86,12 @@ Aditya Prabhu
 B.Tech in Robotics and Artificial Intelligence  
 Nitte University  
 aditya.prabhu0910@gmail.com
+
+
+Portfolio: [https://aditya-prabhu-portfolio.netlify.app/](https://aditya-prabhu-portfolio.netlify.app/)
+
+**--------------------------------------------------**
+
+This project is for **learning and portfolio purposes**.
+
 
