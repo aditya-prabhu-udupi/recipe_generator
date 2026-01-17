@@ -1,13 +1,24 @@
-import openai
+
+# import openai
 import os
 from flask import Flask, render_template_string, request
 
-openai.api_key = os.environ['OPENAI_API_KEY']
+# openai.api_key = os.environ['OPENAI_API_KEY']
 
 def generate_tutorial(components):
-    # Simulated response
-    return f"Recipe generated for: {components}\n\n(This is a demo. API is disabled.)"
-
+    response = openai.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[{
+            "role": "system",
+            "content": "You are a helpful assistant"
+        }, {
+            "role": "user",
+            "content": f"Suggest a recipe using the items listed as available. Make sure you have a nice name for this recipe listed at the start. Also, include a funny version of the name of the recipe on the following line. Then share the recipe in a step-by-step manner. In the end, write a fun fact about the recipe or any of the items used in the recipe. Here are the items available: {components}, Haldi, Chilly Powder, Tomato Ketchup, Water, Garam Masala, Oil"
+        }])
+    content = response['choices'][0]['message']['content']
+    # Remove asterisks used for markdown formatting
+    content = content.replace('*', '')
+    return content
 
 app = Flask(__name__)
 
@@ -264,17 +275,10 @@ def hello():
                 </div>   
                 
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary" disabled>
+                    <button type="submit" class="btn btn-primary">
                         <i class="fas fa-magic me-2"></i> Share a recipe with me
                     </button>
-                    <p style="color: #dc3545; margin-top: 10px; font-weight: 500;">
-                        🔒 Recipe generation is disabled to prevent misuse of API credits.<br> For more details contact 
-                                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfsBQtJuZxlVzj1OQNgkFFjWz5_I7t-nvXUd3tO-4XKb9jQuQ/viewform?usp=header">Aditya Prabhu</a>
-                            <br><br> You can still watch the demo of the app over here -- 
-                                  <a href="https://drive.google.com/file/d/1toxF7uTQUhgIiDAKIBLKcxOs1yG1OM5q/view?usp=sharing">Demo Video</a> 
-                    </p>
                 </div>
-
             </form>
             
             <div class="output-card">
@@ -313,9 +317,7 @@ def hello():
 @app.route('/generate', methods=['POST'])
 def generate():
     components = request.form['components']
-    return f"This is a demo. You entered: {components}\n\n(Real recipe generation is disabled for public use.)"
-
+    return generate_tutorial(components)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
-
