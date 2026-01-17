@@ -24,7 +24,11 @@ Built with **Python (Flask)** and deployed on **Render**.
 
 ---
 ## Screenshots
-(Will be uploaded shortly)
+![First](Screenshots/1.png)  
+![Second](Screenshots/2.png)  
+![Third](Screenshots/3.png)  
+![Fourth](Screenshots/4.png)
+
 
 ---
 ## How to Run the Project Locally
